@@ -6,11 +6,11 @@ function App() {
   return (
     <div className="App">
       <RUINavbar />
-      <div className='Body' style={{ "display": "flex", "flex-direction": "row", "flex-wrap": "wrap" }}>
+      <div className='Body' style={{ "display": "flex", "flex-flow": "row wrap", "justify-content": "center", "align-items": "baseline" }}>
         <Status />
         <Docker />
       </div>
-    </div>
+    </div >
   );
 }
 
