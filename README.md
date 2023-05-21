@@ -21,18 +21,8 @@ npm i
  ```
 
 ## PREVIEW
-
-<link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.6/dist/full.css" rel="stylesheet" type="text/css" />     
-
-<script src="https://cdn.tailwindcss.com"></script>        
+       
 
 
-
-<div class="carousel carousel-center max-w-md p-4 space-x-4 bg-neutral rounded-box">
-  <div class="carousel-item">
-    <img src="./preview/01.png" class="rounded-box" />
-  </div> 
-  <div class="carousel-item">
-    <img src="./preview/02.png" class="rounded-box" />
-  </div> 
-</div>
+<img src="./preview/01.png"  />
+<img src="./preview/02.png" />
