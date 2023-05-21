@@ -5,8 +5,8 @@ import {
   Button,
   Input,
 } from "@material-tailwind/react";
-import { BellIcon, Cog6ToothIcon } from "@heroicons/react/24/solid";
- 
+import { MoonIcon, Cog6ToothIcon } from "@heroicons/react/24/solid";
+
 export default function RUINavbar() {
   return (
     <Navbar className="mx-auto max-w-screen-xl px-4 py-3">
@@ -24,7 +24,7 @@ export default function RUINavbar() {
             <Cog6ToothIcon className="h-4 w-4" />
           </IconButton>
           <IconButton variant="text" color="blue-gray">
-            <BellIcon className="h-4 w-4" />
+            <MoonIcon className="h-4 w-4" />
           </IconButton>
         </div>
       </div>
