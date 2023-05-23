@@ -14,4 +14,4 @@ app.get('/api/cpu', (req, res) => {
   const cpuUsage = Math.round(os.loadavg()[0] * 10000) / 100;
   res.json({ cpuUsage });
 });
-app.listen(3001, () => console.log('Server started on port 3000'));
+app.listen(3001, () => console.log('Server started on port 3001'));
