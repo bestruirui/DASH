@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start:web": "react-scripts start",
-    "start:api": "node server/api.js"
+    "start:api": "node server/api.js",
     "build:web": "react-scripts build",
     "build:api": "pkg server/api.js -t node16-linux-x64 --output ./dist/dash_api",
     "test": "react-scripts test",
