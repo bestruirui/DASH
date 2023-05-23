@@ -10,11 +10,11 @@ function App() {
 
   if (isLoading) {
     return (
-      <div style={{"position": "absolute",
+      <div  style={{"position": "absolute",
     "top": "50%",
     "left": "50%",
     "transform":" translate(-50%, -50%)"}}>
-        <Spinner className="h-12 w-12" />
+        <Spinner color="blue-gray" className="h-12 w-12" />
       </div>
     );
   }
