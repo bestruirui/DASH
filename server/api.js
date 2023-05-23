@@ -1,17 +1,21 @@
 const os = require('os');
 const express = require('express');
-
 const app = express();
+app.get('/api', (req, res) => {
+  const cpuUsage = Math.round((1 - os.loadavg()[2] / os.cpus().length) * 100 * 100) / 100;
+  const memUsage = Math.round((1 - os.freemem() / os.totalmem()) * 100 * 100) / 100;
+  const diskUsage = Math.round((1 - os.freemem() / os.totalmem()) * 100 * 100) / 100;
 
-// 允许所有域名访问该 API
-app.use(function(req, res, next) {
+  const data = {
+    cpuUsage,
+    memUsage,
+    diskUsage
+  };
+
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
+  res.json(data);
 });
 
-app.get('/api/cpu', (req, res) => {
-  const cpuUsage = Math.round(os.loadavg()[0] * 10000) / 100;
-  res.json({ cpuUsage });
-});
-app.listen(3001, () => console.log('Server started on port 3001'));
+const port = process.env.PORT || 3001;
+app.listen(port, () => console.log(`Server running on port ${port}`));

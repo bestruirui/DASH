@@ -8,24 +8,25 @@ import {
   Button,
 } from "@material-tailwind/react";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 
 export default function Status() {
-  const [cpuUsage, setCpuUsage] = useState(0);
+  
+  const [data, setData] = useState({});
   useEffect(() => {
-    const interval = setInterval(() => {
-      axios
-        .get("https://ewrzp7-3001.csb.app/api/cpu")
-        .then((response) => {
-          setCpuUsage(response.data.cpuUsage);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }, 1000);
+    const intervalId = setInterval(async () => {
+      try {
+        const response = await fetch('https://dash.bestruirui.repl.co/api');
+        const json = await response.json();
+        setData(json);
+      } catch (error) {
+        console.error(error);
+      }
+    }, 1000); // 每1秒钟获取新数据
 
-    return () => clearInterval(interval);
+    return () => clearInterval(intervalId); // 在组件卸载前清除定时器
   }, []);
+
+  
   return (
     <Card className="mt-6 w-96 mx-auto ">
       <CardHeader floated={false} shadow={false} className="rounded-none">
@@ -49,11 +50,11 @@ export default function Status() {
               CPU
             </Typography>
             <Typography color="blue-gray" variant="h6">
-              {cpuUsage}%
+              {data.cpuUsage}%
             </Typography>
           </div>
           <Progress
-            value={cpuUsage}
+            value={data.cpuUsage}
             className="h-5 mb-2 progress"
             color="blue-gray"
           />
@@ -67,7 +68,7 @@ export default function Status() {
             </Typography>
           </div>
           <Progress
-            value={35}
+            value={data.memUsage}
             className="h-5 mb-2 progress"
             color="blue-gray"
           />
