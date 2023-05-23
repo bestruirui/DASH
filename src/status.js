@@ -7,25 +7,11 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
-import React, { useState, useEffect } from "react";
+import { useApiData } from './data';
 
 export default function Status() {
   
-  const [data, setData] = useState({});
-  useEffect(() => {
-    const intervalId = setInterval(async () => {
-      try {
-        const response = await fetch('https://ewrzp7-3001.csb.app/api');
-        const json = await response.json();
-        setData(json);
-      } catch (error) {
-        console.error(error);
-      }
-    }, 1000); // 每1秒钟获取新数据
-
-    return () => clearInterval(intervalId); // 在组件卸载前清除定时器
-  }, []);
-
+  const {data} = useApiData();
   
   return (
     <Card className="mt-6 w-96 mx-auto ">

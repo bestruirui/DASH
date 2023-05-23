@@ -1,14 +1,27 @@
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import RUINavbar from "./Navbar";
 import Status from "./status";
 import Docker from "./docker";
 import { ThemeProvider } from "@material-tailwind/react";
+import { useApiData } from "./data";
+
 function App() {
-  const customTheme = {
-    
-  };
+  const [isLoaded, setIsLoaded] = useState(false);
+  const { isLoading } = useApiData();
+
+  useEffect(() => {
+    window.addEventListener("load", () => {
+      setIsLoaded(true);
+    });
+  }, []);
+
+  if (!isLoaded || isLoading) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <ThemeProvider value={customTheme}>
+    <ThemeProvider>
       <div className="App">
         <RUINavbar />
         <div
