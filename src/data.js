@@ -7,7 +7,7 @@ export function useApiData() {
   useEffect(() => {
     const intervalId = setInterval(async () => {
       try {
-        const response = await fetch("https://ewrzp7-3001.csb.app/api");
+        const response = await fetch("https://demo.bestrui.top/api");
         const json = await response.json();
         setData(json);
         setIsLoading(false); // 数据已经加载完成
