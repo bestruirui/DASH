@@ -15,7 +15,7 @@ export default function Status() {
   useEffect(() => {
     const intervalId = setInterval(async () => {
       try {
-        const response = await fetch('https://dash.bestruirui.repl.co/api');
+        const response = await fetch('https://ewrzp7-3001.csb.app/api');
         const json = await response.json();
         setData(json);
       } catch (error) {
@@ -64,7 +64,7 @@ export default function Status() {
               MEM
             </Typography>
             <Typography color="blue-gray" variant="h6">
-              35%
+              {data.memUsage}%
             </Typography>
           </div>
           <Progress
@@ -77,11 +77,11 @@ export default function Status() {
               DISK
             </Typography>
             <Typography color="blue-gray" variant="h6">
-              65%
+              {data.diskUsage}%
             </Typography>
           </div>
           <Progress
-            value={65}
+            value={data.diskUsage}
             className="h-5 mb-2 progress"
             color="blue-gray"
           />
