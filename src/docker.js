@@ -2,7 +2,6 @@ import {
   MagnifyingGlassIcon,
   ChevronUpDownIcon,
 } from "@heroicons/react/24/outline";
-import { PencilIcon, UserPlusIcon } from "@heroicons/react/24/solid";
 import {
   Card,
   CardHeader,
@@ -11,13 +10,10 @@ import {
   Button,
   CardBody,
   Chip,
-  CardFooter,
   Tabs,
   TabsHeader,
   Tab,
   Avatar,
-  IconButton,
-  Tooltip,
   Menu,
   MenuHandler,
   MenuList,
@@ -69,7 +65,7 @@ const TABLE_ROWS = [
   {
     img: "./docker.svg",
     name: "Docker5",
-    online: false,
+    online: true,
     date: "04/10/21",
   },
 ];
@@ -82,11 +78,12 @@ export default function Docker() {
     >
       <CardHeader floated={false} shadow={false} className="rounded-none">
         <div className="mb-8 flex items-center justify-between gap-8">
-          <div>
             <Typography variant="h2" color="blue-gray">
               Docker
             </Typography>
-          </div>
+            <img src="./docker.svg" className="inline-block relative object-center h-12 rounded-lg object-fill !rounded-none "/>
+
+          
         </div>
         <div className="flex flex-col items-center justify-between gap-4 ">
           <Tabs value="all" className="w-full ">
@@ -131,7 +128,7 @@ export default function Docker() {
           </thead>
           <tbody>
             {TABLE_ROWS.map(
-              ({ img, name, email, job, org, online, date }, index) => {
+              ({ name, online }, index) => {
                 const isLast = index === TABLE_ROWS.length - 1;
                 const classes = isLast
                   ? "p-4"
@@ -141,12 +138,7 @@ export default function Docker() {
                   <tr key={name}>
                     <td className={classes}>
                       <div className="flex items-center gap-3">
-                        <Avatar
-                          src={img}
-                          alt={name}
-                          size="sm"
-                          className="object-fill"
-                        />
+                        
                         <div className="flex flex-col">
                           <Typography
                             variant="small"

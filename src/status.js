@@ -6,6 +6,7 @@ import {
   CardFooter,
   Typography,
   Button,
+  Avatar,
 } from "@material-tailwind/react";
 import { useApiData } from './data';
 
@@ -17,11 +18,10 @@ export default function Status() {
     <Card className="mt-6 w-96 mx-auto ">
       <CardHeader floated={false} shadow={false} className="rounded-none">
         <div className="mb-8 flex items-center justify-between gap-8">
-          <div>
             <Typography variant="h2" color="blue-gray">
               系统信息
             </Typography>
-          </div>
+            <Avatar src="./server.svg" className="object-fill !rounded-none"/>
         </div>
       </CardHeader>
 
