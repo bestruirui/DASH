@@ -14,7 +14,7 @@ export function useApiData() {
       } catch (error) {
         console.error(error);
       }
-    }, 1000); // 每1秒钟获取新数据
+    }, 4000); // 每1秒钟获取新数据
 
     return () => clearInterval(intervalId); // 在组件卸载前清除定时器
   }, []);

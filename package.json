@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "npm run start:web & npm run start:api",
-    "start:web": "export PORT=300 && react-scripts start",
+    "start:web": "export PORT=443 && react-scripts start",
     "start:api": "nodemon server/api.js",
     "build:web": "react-scripts build",
     "build:api": "pkg server/api.js -t node16-linux-x64 --output ./dist/dash_api",
