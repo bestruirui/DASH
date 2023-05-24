@@ -18,7 +18,8 @@
     "tailwindcss": "^3.3.2"
   },
   "scripts": {
-    "start:web": "react-scripts start",
+    "start": "npm run start:web & npm run start:api",
+    "start:web": "export PORT=300 && react-scripts start",
     "start:api": "node server/api.js",
     "build:web": "react-scripts build",
     "build:api": "pkg server/api.js -t node16-linux-x64 --output ./dist/dash_api",
